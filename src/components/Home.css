@@ -1,0 +1,12 @@
+.home {
+  display: flex;
+  flex-direction: row;
+  height: 90vh;
+  width: 100vw;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+}
+Fab {
+  size: large;
+}
