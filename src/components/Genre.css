@@ -1,0 +1,13 @@
+.gameList {
+  display: grid;
+  grid-template-columns: 25vw 25vw 25vw 25vw;
+  grid-template-rows: 20% 20% 20% 20% 20%;
+  padding-top: 12vh;
+}
+/* .gameList::content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: teal;
+    
+} */
