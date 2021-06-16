@@ -9,5 +9,11 @@
     align-items: center;
     justify-content: space-between;
     background-color: teal;
-    
+
 } */
+
+button{
+  display: flex;
+  flex-direction: row;
+  justify-self: space-around;
+}

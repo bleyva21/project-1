@@ -9,8 +9,8 @@ function Genre () {
     // let {genre} = useParams();
     const [gameList, setGameList] = useState([])
     const [page, setPage] = useState(0)
-    if (page === 0) setPage(1); 
-    
+    if (page === 0) setPage(1);
+
     function next(){
         setPage(page+1)
     }
@@ -21,7 +21,7 @@ function Genre () {
 
     function backButton(){
         return(
-            
+
             (page > 1) ? <Button variant='primary' onClick={back}>Back</Button> :
             <></>
         )
@@ -34,11 +34,11 @@ function Genre () {
     }, [page])
 
     return(
-        <div className="gameList">      
+        <div className="gameList">
           {console.log(gameList)}
           {gameList.map(game => <GameTiles gameInfo={game}/>)}
-          <Button variant='primary' onClick={next}>Next</Button>
           {backButton()}
+          <Button variant='primary' onClick={next}>Next</Button>
         </div>
     )
 }

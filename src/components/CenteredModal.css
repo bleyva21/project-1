@@ -44,3 +44,7 @@
   transition-duration: 1s;
   transform: scale(1.08);
 }
+
+a:hover{
+cursor: pointer;
+}
