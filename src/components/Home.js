@@ -24,7 +24,7 @@ function Home (){
         <Link style={{textDecoration: "none", textDecorationColor: "white", borderRadius: '50%' }} to={`/${genre.name}`}>
           <div className='genre' style={{backgroundImage: 'url('+genre.image_background+')'}}>
           <div id='overlay'/>
-          {genre.name}
+          <h3 className='genreName'>{genre.name}</h3>
           {/* <p style={{display: 'none'}}>Games Count: {genre.games_count}</p> */}
           </div>
         </Link>

@@ -2,13 +2,12 @@ import { Modal } from 'react-bootstrap'
 import Button from 'react-bootstrap/Button';
 import { useState, useEffect } from 'react'
 import GameDetails from './GameDetails.js'
-
-// import Slider from './Slider.js';
+import Slider from './Slider.js';
+import './CenteredModal.css'
 
 function CenteredModal(props) {
   const { gameInfo } = props;
   const [trailer, setTrailer] = useState('')
-
   let rating = '';
   (gameInfo.esrb_rating) ? rating = gameInfo.esrb_rating.name : rating = 'https://www.esrb.org/wp-content/uploads/2019/05/RP.svg';
 
@@ -40,7 +39,10 @@ function CenteredModal(props) {
 
   function videoFormatter(){
   if (trailer.length !== 0) {
-    return (<video controls width="400" autoPlay='true'><source src={trailer[0].data.['480']}/></video>)
+    return (
+    <div className='videoContainer'>
+      <video controls className='videoPlayer' width='auto' autoPlay='true'><source src={trailer[0].data.['480']}/></video>
+    </div>)
   } else {return (<></>)}
   }
 
@@ -58,8 +60,9 @@ function CenteredModal(props) {
       </Modal.Header>
       <Modal.Body>
       {videoFormatter()}
-        {/* <Slider images={}/> */}
+      <Slider images={gameInfo.short_screenshots}/>
         <GameDetails id={gameInfo.id}/>
+        
         <img height='100' src={rating}/>
       </Modal.Body>
       <Modal.Footer>

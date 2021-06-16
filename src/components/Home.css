@@ -17,6 +17,9 @@
 } */
 
 .genre {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   line-height: 20vh;
   text-align: center;
   vertical-align: middle;
@@ -36,14 +39,27 @@
   /* width: 300px;
   height: 300px; */
   transform: scale(1.5);
-  display: block;
+}
+
+.genreName{
+  background-color: black;
+  color: white;
+  opacity: 0.8;
+  border-radius: 30px;
+  align-self: center;
+  padding-left:5%;
+  padding-right: 5%;
 }
 /* .genre p:Hover {
   display: block;
 } */
 
-/* .genre:Hover > .genre:not(:Hover){
-  filter: blur(4px);
+/* .home:hover .genre:not(:Hover){
+  z-index: -1;
+filter: blur(4px);
+} */
+/* .home:Hover .genre:Hover{
+  filter: 0;
   transform: scale(1.5);
 } */
 /* .genre:Hover #overlay {

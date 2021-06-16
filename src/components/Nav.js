@@ -5,7 +5,10 @@ function Nav () {
 
     return(
         <nav>
-          <Link to="" style={{textDecoration: "none"}}><span style={{fontSize: "50px"}}>G</span>ame<span style={{fontSize: "50px"}}> G</span>enres</Link>
+          <Link to="/">GameGenres
+            {/* <div style={{backgroundImage: 'url(https://api.freelogodesign.org/files/5eb5391d67a24960bf93cc058bc02b73/thumb/logo_200x200.png?v=0)'}}/> */}
+            {/* <img src='https://api.freelogodesign.org/files/5eb5391d67a24960bf93cc058bc02b73/thumb/logo_200x200.png?v=0'/> */}
+          </Link>
         </nav>
     )
 }
