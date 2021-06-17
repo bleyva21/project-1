@@ -9,6 +9,7 @@
 .image {
   height: 300px;
   border-radius: 10px;
+  max-width: 600px;
 }
 
 .right-arrow {

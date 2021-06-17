@@ -12,3 +12,17 @@
 a:hover{
 cursor: pointer;
 }
+.metacritic {
+  position: relative;
+  border-radius: 15%;
+  padding: 0;
+}
+[data-high] {
+  background-color: rgb(24, 161, 24);
+}
+[data-medium] {
+  background-color: #d7da5e;
+}
+[data-low] {
+  background-color: rgb(172, 16, 16);
+}

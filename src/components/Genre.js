@@ -1,9 +1,9 @@
-import { useParams } from 'react-router-dom'
-import AppContext from '../AppContext';
+import { useParams, Switch } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import GameTiles from './GameTiles.js'
 import './Genre.css'
 import Button from 'react-bootstrap/Button';
+import { HiOutlineArrowNarrowRight, HiOutlineArrowNarrowLeft } from 'react-icons/hi';
 
 function Genre () {
     let { genre } = useParams();
@@ -21,19 +21,18 @@ function Genre () {
 
     function backButton(){
         return(
-
-            (page > 1) ? <Button variant='primary' onClick={back}>Back</Button> :
+            (page > 1) ? <HiOutlineArrowNarrowLeft variant='dark' className='back' onClick={back}/>:
             <></>
         )
     }
 
     function URLFormatter() {
         if(genre === 'MMO') genre = 'Massively Multiplayer'
-        if(genre === 'RPG') genre = 'role playing gamess rpg'
+        if(genre === 'RPG') genre = 'role playing games rpg'
         let newGenre = genre.toLowerCase()
         newGenre = newGenre.replace(/\s/g, '-')
         console.log(newGenre)
-        return `https://api.rawg.io/api/games?key=a6f95382b2a642d7bd6c1dd0c5afbdf9&genres=${newGenre}&page=${page}&page_size=20`
+        return `https://api.rawg.io/api/games?key=5e704af79f8045638311f0553d4e1b86&genres=${newGenre}&page=${page}&page_size=20`
     }
     
     useEffect(async ()=>{
@@ -42,15 +41,18 @@ function Genre () {
       fetch(url)
       .then(response=>response.json())
       .then(data=>setGameList(data.results))
-    }, [page])
+    }, [page, genre])
 
-    return(
-        <div className="gameList">
-          {console.log(gameList)}
-          {gameList.map(game => <GameTiles gameInfo={game}/>)}
-          {backButton()}
-          <Button variant='primary' onClick={next}>Next</Button>
-        </div>
+    return (
+        <>
+            <div className='description'><h1>{genre}</h1></div>
+            <div className="gameList">
+                {console.log(gameList)}
+                {gameList.map(game => <GameTiles gameInfo={game} />)}
+                {backButton()}
+                <HiOutlineArrowNarrowRight className='next' variant='dark' onClick={next} />
+            </div>
+        </>
     )
 }
 

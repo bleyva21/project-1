@@ -31,7 +31,6 @@ function Home (){
       </OverlayTrigger>)
   })
   return (
-
     <div className="home">
       {genreButtons}
     </div>

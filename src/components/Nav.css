@@ -10,13 +10,13 @@ nav {
   justify-content: center;
 }
 
-nav Link{
-  display: flex;
+.logo{
+  display: inline-flex;
   width: 150px;
   height: 100px;
   background-size: 170px;
   background-position: center;
   background-color: white;
-  opacity: 0.9;
+  opacity: 0.8;
   border-radius: 25px;
 }

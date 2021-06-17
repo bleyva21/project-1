@@ -2,12 +2,15 @@ import { Modal } from 'react-bootstrap'
 import Button from 'react-bootstrap/Button';
 import { useState, useEffect } from 'react'
 import GameDetails from './GameDetails.js'
+import GameTrailer from './GameTrailer.js'
+import GenreButtons from './GenreButtons.js'
+import FavoriteGame from './FavoriteGame.js'
 import Slider from './Slider.js';
 import './CenteredModal.css'
 
 function CenteredModal(props) {
   const { gameInfo } = props;
-  const [trailer, setTrailer] = useState('')
+  
   let rating = '';
   (gameInfo.esrb_rating) ? rating = gameInfo.esrb_rating.name : rating = 'https://www.esrb.org/wp-content/uploads/2019/05/RP.svg';
 
@@ -28,22 +31,25 @@ function CenteredModal(props) {
       rating = 'https://www.esrb.org/wp-content/uploads/2019/05/E.svg'
       break;
     default:
+      rating = 'https://www.esrb.org/wp-content/uploads/2019/05/RP.svg'
       break;
   }
 
-  useEffect(()=>{
-    fetch(`https://api.rawg.io/api/games/${gameInfo.id}/movies?key=a6f95382b2a642d7bd6c1dd0c5afbdf9`)
-    .then(response=>response.json())
-    .then(data=>setTrailer(data.results))
-  }, [])
+  function ratingsFormatter () {
+    let metScore = gameInfo.metacritic
+    let ratingHTML = <></>
+    if (metScore >= 80) {
+        ratingHTML = (<span className='metacritic' data-high>{metScore}</span>)
+    } else if (metScore >= 51) {
+      ratingHTML = (<span className='metacritic' data-medium>{metScore}</span>)
+    } else {
+      ratingHTML = (<span className='metacritic' data-low>{metScore}</span>)
+    }
 
-  function videoFormatter(){
-  if (trailer.length !== 0) {
-    return (
-    <div className='videoContainer'>
-      <video controls className='videoPlayer' width='auto' autoPlay='true'><source src={trailer[0].data.['480']}/></video>
-    </div>)
-  } else {return (<></>)}
+    if (metScore) {
+      return (<h5> Overall Rating: {gameInfo.rating}<br/>
+      Metacritic Rating: {ratingHTML}</h5>)
+    } else { return (<h5> Overall Rating: {gameInfo.rating}</h5>)}
   }
 
   return (
@@ -56,17 +62,21 @@ function CenteredModal(props) {
       <Modal.Header>
         <Modal.Title id="contained-modal-title-vcenter">
           {gameInfo.name}
+          <FavoriteGame gameInfo={gameInfo} /> 
+          {ratingsFormatter()}
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-      {videoFormatter()}
+      <GameTrailer id={gameInfo.id}/>
       <Slider images={gameInfo.short_screenshots}/>
         <GameDetails id={gameInfo.id}/>
         
         <img height='100' src={rating}/>
+        <GenreButtons onHide={props.onHide} genres={gameInfo.genres}/>
       </Modal.Body>
       <Modal.Footer>
         <Button variant="dark" onClick={props.onHide}>Close</Button>
+        
       </Modal.Footer>
     </Modal>
   );

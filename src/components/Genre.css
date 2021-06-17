@@ -2,7 +2,6 @@
   display: grid;
   grid-template-columns: 25vw 25vw 25vw 25vw;
   grid-template-rows: 20% 20% 20% 20% 20%;
-  padding-top: 120px;
 }
 /* .gameList::content{
     display: flex;
@@ -12,8 +11,34 @@
 
 } */
 
-button{
-  display: flex;
-  flex-direction: row;
-  justify-self: space-around;
+.description{
+  padding-top: 120px;
+  margin-left:50px;
+}
+
+.next{
+  display: grid;
+  grid-column-start: 3;
+  grid-column-end: 4;
+  align-self: start;
+  justify-self: end;
+  margin-bottom: 20px;
+  width:50%;
+  border: solid black;
+  border-radius: 25px;
+  cursor: pointer;
+  height: 150%;
+}
+
+.back{
+  display: grid;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  align-self: start;
+  justify-self: start;
+  width:50%;
+  border: solid black;
+  border-radius: 25px;
+  cursor: pointer;
+  height: 150%;
 }

@@ -1,6 +1,6 @@
 import './GameTiles.css'
 import Button from 'react-bootstrap/Button';
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import CenteredModal from './CenteredModal.js'
 
 
@@ -8,7 +8,6 @@ import CenteredModal from './CenteredModal.js'
 function GameTiles ({gameInfo}) {
     const [modalShow, setModalShow] = useState(false);
     
-
 return (
   <div className="gameTiles" style={{backgroundImage: 'url('+ gameInfo.background_image +')'}}>
     <div className='gameName'>{gameInfo.name}</div>

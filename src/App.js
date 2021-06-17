@@ -5,23 +5,36 @@ import Home from './components/Home.js'
 import AppContext from './AppContext.js'
 import Nav from './components/Nav.js'
 import Genre from './components/Genre.js'
+import FavoritesPage from './components/FavoritesPage.js'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const [genres, setGenres] = useState([])
+  const [favoriteId, setFavoriteId] = useState([])
+  const [favoriteData, setFavoriteData] = useState([])
 
   useEffect (()=> {
-    fetch('https://api.rawg.io/api/genres?key=a6f95382b2a642d7bd6c1dd0c5afbdf9')
+    fetch('https://api.rawg.io/api/genres?key=5e704af79f8045638311f0553d4e1b86')
     .then(response => response.json())
     .then(data=> setGenres(data.results))
   }, [])
+  console.log()
   return (
-    <AppContext.Provider value={{genres}}>
+    <AppContext.Provider value={{genres, favoriteId, setFavoriteId, favoriteData, setFavoriteData}}>
       <Router>
+        <body style={{backgroundSize: 'auto', backgroundImage: 'url('+ 'https://www.itl.cat/pngfile/big/153-1531806_best-gaming-wallpapers-for-android-texture-gaming.jpg' +')'}}>
       <Nav /> 
       {/* {console.log(genres)} */}  
-          <Route exact path='/'><Home/></Route>
-          <Route exact path='/:genre'><Genre/></Route>
+          <Route exact path='/'>
+            <Home/>
+          </Route>
+            <Switch>
+            <Route exact path='/FavoritesPage'>
+              <FavoritesPage/>
+            </Route>
+            <Route exact path='/:genre' component={Genre}/>
+            </Switch>
+            </body>
       </Router>
     </AppContext.Provider>
   );

@@ -1,0 +1,13 @@
+.favoritesPage {
+  padding-top: 120px;
+}
+
+.heart1:hover{
+ cursor: pointer;
+ color:red;
+}
+
+.heart2{
+  cursor: pointer;
+  color: red;
+}

@@ -6,7 +6,7 @@ function GameDetails({ id }){
   const [showMore, setShowMore] = useState(false)
 
   useEffect(()=>{
-    fetch(`https://api.rawg.io/api/games/${id}?key=a6f95382b2a642d7bd6c1dd0c5afbdf9`)
+    fetch(`https://api.rawg.io/api/games/${id}?key=5e704af79f8045638311f0553d4e1b86`)
     .then(response=>response.json())
     .then(data=>setGameDetails(data))
   }, [])
