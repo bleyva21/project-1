@@ -3,28 +3,41 @@ import { Link } from 'react-router-dom'
 import Genre from './Genre.js'
 
 function GenreButtons ({genres, onHide}) {
-  const buttons = {
-    'Action': <Link to='/Action' onClick={onHide}><h5>Action</h5></Link>,
-    'Indie': <Link to='/Indie' onClick={onHide}><h5 >Indie</h5></Link>,
-    'Adventure': <Link to='/Adventure' onClick={onHide}><h5>Adventure</h5></Link>,
-    'RPG': <Link to='/RPG' onClick={onHide}><h5>RPG</h5></Link>,
-    'Strategy': <Link to='/Strategy' onClick={onHide}><h5>Strategy</h5></Link>,
-    'Shooter': <Link to='/Shooter' onClick={onHide}><h5>Shooter</h5></Link>,
-    'Casual': <Link to='/Casual' onClick={onHide}><h5>Casual</h5></Link>,
-    'Puzzle': <Link to='/Puzzle'  onClick={onHide}><h5>Puzzle</h5></Link>,
-    'Arcade': <Link to='/Arcade'  onClick={onHide}><h5>Arcade</h5></Link>,
-    'Platformer': <Link to='/Platformer' onClick={onHide}><h5>Platformer</h5></Link>,
-    'Racing': <Link to='/Racing' onClick={onHide}><h5>Racing</h5></Link>,
-    'MMO': <Link to='/MMO' onClick={onHide}><h5>MMO</h5></Link>,
-    'Sports': <Link to='/Sports' onClick={onHide}><h5>Sports</h5></Link>,
-    'Fighting': <Link to='/Fighting' onClick={onHide}><h5>Fighting</h5></Link>,
-    'Family': <Link to='/Family' ><h5>Family</h5></Link>,
-    'Board Games': <Link to='/Board Games' onClick={onHide}><h5>Board Games</h5></Link>,
-    'Educational': <Link to='/Educational' onClick={onHide}><h5>Educational</h5></Link>,
-    'Card': <Link to='/Card' onClick={onHide}><h5>Card</h5></Link>,
-  }
+
+  // function colorGenerator(){
+  //   function getRandomInt(min, max) {
+  //     min = Math.ceil(min);
+  //     max = Math.floor(max);
+  //     return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
+  //   }
+
+  //   let output = '#';
+    
+  //   for(var i = 0; i < 6; i++){
+  //     let z = getRandomInt(0, 15)
+  //     if(z > 9){
+  //       switch (z){
+  //         case 10 : z = 'a'; break;
+  //         case 11 : z = 'b'; break;
+  //         case 12 : z = 'c'; break;
+  //         case 13 : z = 'd'; break;
+  //         case 14 : z = 'e'; break;
+  //         case 15 : z = 'f'; break;
+  //       }
+  //       output = output.concat(z)
+  //       continue;
+  //     }
+  //     output = output.concat(z.toString())
+  //   }
+  //   return(
+  //     <>{output}</>
+  //   )
+  // }
+
   let genreMatches = genres.map(genre=>{
-    return (buttons[genre.name])})
+    if (genre.name === 'Massively Multiplayer') genre.name = 'MMO';
+    return (<Link to={`/${genre.name}`} onClick={onHide} style={{textDecoration: 'none', textDecorationColor: 'white'}}><h4 className={(genre.name==='Board Games')? 'Board-Games' : genre.name }>{genre.name}</h4></Link>)})
+
 return (
   <>
     <div className='genreButtons'>

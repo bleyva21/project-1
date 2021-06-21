@@ -1,6 +1,7 @@
 nav {
   position: fixed;
   background-color: black;
+  opacity: 0.6;
   margin: 0;
   height: 100px;
   width: 100%;
@@ -8,15 +9,27 @@ nav {
   flex-direction: row;
   align-content: center;
   justify-content: center;
+  transition:0.9s;
+  /* background-image: url('https://cdn.staticcrate.com/stock-hd/effects/footagecrate-4k-looping-tech-background-clean-blue-2-prev-full.png') */
+}
+
+nav:hover{
+  opacity: 1;
+  transition:0.9s;
 }
 
 .logo{
   display: inline-flex;
+  flex-direction: row;
   width: 150px;
   height: 100px;
   background-size: 170px;
   background-position: center;
   background-color: white;
-  opacity: 0.8;
+  /* opacity: 0.9; */
   border-radius: 25px;
+}
+.logo:hover {
+  opacity: 1 !important;
+  transform: scale(1.1)
 }

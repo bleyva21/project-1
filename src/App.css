@@ -1,3 +1,9 @@
-.root {
+body {
   padding: 0;
+  background-size: 'auto';
+  background-image: url('https://www.itl.cat/pngfile/big/153-1531806_best-gaming-wallpapers-for-android-texture-gaming.jpg');
+  background-attachment: fixed;
+  width: 100%;
+  height: 100%;
+  /* position: fixed; */
 }

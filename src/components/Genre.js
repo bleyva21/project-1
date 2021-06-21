@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react'
 import GameTiles from './GameTiles.js'
 import './Genre.css'
 import Button from 'react-bootstrap/Button';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
+import Popover from 'react-bootstrap/Popover'
 import { HiOutlineArrowNarrowRight, HiOutlineArrowNarrowLeft } from 'react-icons/hi';
 
 function Genre () {
@@ -43,9 +45,16 @@ function Genre () {
       .then(data=>setGameList(data.results))
     }, [page, genre])
 
+    useEffect(()=>{
+        setPage(0)
+      }, [genre])
+
+
     return (
         <>
-            <div className='description'><h1>{genre}</h1></div>
+            <div className='description'>
+               <h1>{genre}</h1>
+            </div>
             <div className="gameList">
                 {console.log(gameList)}
                 {gameList.map(game => <GameTiles gameInfo={game} />)}

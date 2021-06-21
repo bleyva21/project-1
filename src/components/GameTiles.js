@@ -2,6 +2,7 @@ import './GameTiles.css'
 import Button from 'react-bootstrap/Button';
 import {useState, useEffect} from 'react'
 import CenteredModal from './CenteredModal.js'
+import Spinner from 'react-bootstrap/Spinner'
 
 
 
@@ -11,7 +12,6 @@ function GameTiles ({gameInfo}) {
 return (
   <div className="gameTiles" style={{backgroundImage: 'url('+ gameInfo.background_image +')'}}>
     <div className='gameName'>{gameInfo.name}</div>
-
     <div className='gameDetails'>
     <Button className='gameDetails' variant="dark" onClick={() => setModalShow(true)}>
         Game Details

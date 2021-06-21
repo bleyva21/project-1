@@ -6,6 +6,16 @@ import './Slider.css'
 const Slider = ({ images }) => {
   const [current, setCurrent] = useState(0);
   const length = images.length;
+  let interval;
+  React.useEffect(() => {
+    interval = setInterval(() => {
+      nextSlide();
+      clearInterval(interval);
+    }, 5000);
+    return () => {
+      clearInterval(interval);
+    };
+  }, [current]);
 
   const nextSlide = () => {
     setCurrent(current === length - 1 ? 0 : current + 1);

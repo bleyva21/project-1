@@ -22,7 +22,7 @@ function App() {
   return (
     <AppContext.Provider value={{genres, favoriteId, setFavoriteId, favoriteData, setFavoriteData}}>
       <Router>
-        <body style={{backgroundSize: 'auto', backgroundImage: 'url('+ 'https://www.itl.cat/pngfile/big/153-1531806_best-gaming-wallpapers-for-android-texture-gaming.jpg' +')'}}>
+      <body>
       <Nav /> 
       {/* {console.log(genres)} */}  
           <Route exact path='/'>
@@ -34,7 +34,7 @@ function App() {
             </Route>
             <Route exact path='/:genre' component={Genre}/>
             </Switch>
-            </body>
+      </body> 
       </Router>
     </AppContext.Provider>
   );

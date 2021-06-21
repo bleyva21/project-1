@@ -9,14 +9,20 @@ function FavoritesPage() {
   const { favoriteData } = useContext(AppContext)
 
   return (
-    <div className="favoritesPage">
-      {favoriteData.map(game => {
-        return (
-         
-            <GameTiles gameInfo={game} /> 
+    <>
+      <div className="favoritesPage">
+      {(favoriteData.length === 0) ? 
+      (<div className="noFavorites">
+        <img src="https://media.tenor.com/images/aafc827dad01b1f0974c5388674f8302/tenor.gif" />
+        <div><h2>You have no favorites!</h2></div>
+      </div>) : <></> }
+        {favoriteData.map(game => {
+          return (
+            <GameTiles gameInfo={game} />
           )
-      })}
-    </div>
+        })}
+      </div>
+    </>
   )
 }
 
